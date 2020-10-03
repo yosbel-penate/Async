@@ -1,0 +1,27 @@
+﻿<Window x:Class="Async.AsyncComboboxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Async"
+        mc:Ignorable="d"
+        xmlns:viewmodel="clr-namespace:Async.ViewModel"  
+        Title="AsyncComboboxWindow" Height="245.599" Width="356.338">
+    <Window.DataContext>
+        <viewmodel:ComboboxAsyncDataSource/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <ComboBox x:Name="combox" HorizontalAlignment="Left"   
+                  Margin="183,39,0,0"   
+                  VerticalAlignment="Top"   
+                  Width="120"   
+                  ItemsSource="{Binding TypesGenders, IsAsync=True}"
+                  SelectedItem="{Binding TypeGender}"  
+                  DisplayMemberPath="Value"/>
+            <Button Content="Button" Click="Button_Click" Margin="0,0,-0.4,0"/>
+            <Label Name="label" Content="Label"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
